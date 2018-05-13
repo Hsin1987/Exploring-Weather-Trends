@@ -1,4 +1,4 @@
-# Exploring Weather Trends -  Udacity Project Instructions
+# Exploring Weather Trends - Project Instructions from Udacity Data Analysis Nanodegree -Term1 Project.
 ## Summary
 In this project, you will analyze local and global temperature data and compare the temperature trends where you live to
  overall global temperature trends.
@@ -45,4 +45,4 @@ Your submission should be a PDF that includes:
 
 
 
- Project of Udacity Data Analysis Nanodegree.
+ origin source: Udacity Data Analysis Nanodegree.
