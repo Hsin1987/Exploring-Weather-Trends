@@ -17,7 +17,7 @@ list_city = list(p.glob('**/*.csv'))
 i = 0
 for item in list_city:
     if 'global' in item.name:
-        global_data = pd.read_csv(list_city.pop(i).name)
+        global_data = pd.read_csv(list_city.pop(i).name).set_index('year')
     i += 1         
 
 # 1. List all the table for city temperature data.
@@ -28,13 +28,19 @@ for city in list_city:
     i += 1
 
 # 2. Let the use choose input file >> Loading the File >> Plotting the line chart with city & global data.
-key_input = input("Choose the city by its index:")
-city_data = pd.read_csv(list_city[int(key_input)])
+#key_input = input("Choose the city by its index:")
+key_input = 0 # Taipei
+city_data = pd.read_csv(list_city[int(key_input)]).set_index('year')
+
+global_comparision = global_data.loc[city_data.index]
 
 # 2-1. plot the original data.
-plt.plot(city_data['year'], city_data['avg_temp'],
+plt.plot(city_data.index, city_data['avg_temp'],
          color='green', marker='o', linestyle='dashed', linewidth=2, markersize=1)
-plt.plot(global_data['year'],  global_data['avg_temp'],
+plt.plot(global_comparision.index,  global_comparision['avg_temp'],
          color='red', marker='X', linewidth=2, markersize=1)
+plt.title('Temp. Trend: Regional v.s Golbal ')
+plt.xlabel('YEAR')
+plt.ylabel('Temperature (ºC) ')
 plt.show()
 
