@@ -26,7 +26,7 @@ Your goal will be :
 ### Here are some questions to get you started.
 1. Is your city hotter or cooler on average compared to the global average? 
 2. Has the difference been consistent over time?
-3. How do the changes in your city’s temperatures over time compare to the changes in the global av erage?
+3. How do the changes in your city’s temperatures over time compare to the changes in the global average?
 4. What does the overall trend look like?
     * Is the world getting hotter or cooler?
     * Has the trend been consistent over the last few hundred years?
