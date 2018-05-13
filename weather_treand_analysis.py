@@ -1,0 +1,40 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from pathlib import Path
+
+# 0. Browse all the csv file in the folder.
+# 1. List all the table for city temperature data. (It means the list ignore global_data.csv)
+# 2. Let the use choose input file >> Loading the File >> Plotting the line chart with city & global data.
+# 3. Calcuate the moving average temp.
+# 3-1. Let the user choose the moving average windows
+# 3-2. Calculate the moving average.
+# 4. Plot the line chart for comparing the weather trend.
+
+
+# 0. Browse all the csv file in the folder.
+p = Path('.')
+list_city = list(p.glob('**/*.csv'))
+i = 0
+for item in list_city:
+    if 'global' in item.name:
+        global_data = pd.read_csv(list_city.pop(i).name)
+    i += 1         
+
+# 1. List all the table for city temperature data.
+print("List of City:")
+i = 0
+for city in list_city:
+    print("    " + str(i) + ":  " + city.name)
+    i += 1
+
+# 2. Let the use choose input file >> Loading the File >> Plotting the line chart with city & global data.
+key_input = input("Choose the city by its index:")
+city_data = pd.read_csv(list_city[int(key_input)])
+
+# 2-1. plot the original data.
+plt.plot(city_data['year'], city_data['avg_temp'],
+         color='green', marker='o', linestyle='dashed', linewidth=2, markersize=1)
+plt.plot(global_data['year'],  global_data['avg_temp'],
+         color='red', marker='X', linewidth=2, markersize=1)
+plt.show()
+
